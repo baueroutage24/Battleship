@@ -26,8 +26,32 @@ public class ConnectActivity extends Activity {
 		setContentView(R.layout.activity_connect);
 	}
 	
+	@Override
+	public void onDestroy()
+	{
+		super.onDestroy();
+		
+		Intent overlayIntent = new Intent(this, OverlayService.class);
+		stopService(overlayIntent);
+	}
+	
+	@Override
+	public void onBackPressed() {
+	    super.onBackPressed();
+	    return;
+	} 
+	
+	@Override
+	public void onAttachedToWindow() {
+	    super.onAttachedToWindow();
+	    Intent overlayIntent = new Intent(this, OverlayService.class);
+		stopService(overlayIntent);          
+	}
+	
 	public void start_setup()
 	{
+		Intent overlayIntent = new Intent(this, OverlayService.class);
+		stopService(overlayIntent);
 		Intent intent = new Intent(this, GameActivity.class);
 		startActivity(intent);
 	}
@@ -41,8 +65,20 @@ public class ConnectActivity extends Activity {
 		TCPReadTimerTask tcp_task = Communications.getCommunications().new TCPReadTimerTask();
 		Timer tcp_timer = new Timer();
 		tcp_timer.schedule(tcp_task, 3000, 500);
-		//Communications.getCommunications().waitForSocketConnection();
 	}
+	
+	public void setWaitingForPlayersToConnect()
+    {
+	  Intent intent = new Intent(this, OverlayService.class);
+	  intent.putExtra("ALERT_TEXT", "Waiting for all players to connect.");
+	  startService(intent);
+    }
+	
+	public void setAllPlayersNowConnected()
+    {
+	  Intent intent = new Intent(this, OverlayService.class);
+	  stopService(intent);
+    }
 
 	// Construct an IP address from the four boxes
 	public String getConnectToIP() {

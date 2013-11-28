@@ -20,7 +20,7 @@ public class Communications{
 	private Integer port;
 	private Application application;
 	private Activity currentActivity;
-	private char communicationId;
+	private int communicationId;
 	
 	public static void initializeCommunications(String ipAddress, Integer portInput, Application app)
 	{
@@ -102,7 +102,7 @@ public class Communications{
 					{
 						try
 						{
-							communicator.currentActivity.findViewById(R.id.statusBox).setVisibility(View.VISIBLE);
+							((ConnectActivity)communicator.currentActivity).setWaitingForPlayersToConnect();
 						}
 						catch(Exception ex)
 						{
@@ -123,6 +123,7 @@ public class Communications{
 					{
 						try
 						{
+							((ConnectActivity)communicator.currentActivity).setAllPlayersNowConnected();
 							((ConnectActivity)communicator.currentActivity).start_setup();
 						}
 						catch(Exception ex)
@@ -134,9 +135,99 @@ public class Communications{
 		);
 	}
 	
-	public void handleAllPlayersReady()
+	public void handleAllPlayersReady(byte[] eventData)
 	{
-		
+		if(eventData[0] == communicator.communicationId)
+		{
+			//Opponents turn!
+			communicator.currentActivity.runOnUiThread
+			(
+					new Runnable()
+					{
+						public void run()
+						{
+							try
+							{
+								((GameActivity)communicator.currentActivity).setAllPlayersNowReady();
+								((GameActivity)communicator.currentActivity).setOpponentsTurn();
+							}
+							catch(Exception ex)
+							{
+								
+							}
+						}
+					}
+			);
+		}
+		else
+		{
+			//Your turn!
+			communicator.currentActivity.runOnUiThread
+			(
+					new Runnable()
+					{
+						public void run()
+						{
+							try
+							{
+								((GameActivity)communicator.currentActivity).setAllPlayersNowReady();
+								((GameActivity)communicator.currentActivity).setYourTurn();
+							}
+							catch(Exception ex)
+							{
+								
+							}
+						}
+					}
+			);
+		}
+	}
+	
+	public void handleAttackResult(byte[] eventData)
+	{
+		if(eventData[0] != communicator.communicationId)
+		{
+			if(eventData[1] == 'A')
+			{
+				communicator.currentActivity.runOnUiThread
+				(
+						new Runnable()
+						{
+							public void run()
+							{
+								try
+								{
+									((GameActivity)communicator.currentActivity).onHit();
+								}
+								catch(Exception ex)
+								{
+									
+								}
+							}
+						}
+				);
+			}
+			else
+			{
+				communicator.currentActivity.runOnUiThread
+				(
+						new Runnable()
+						{
+							public void run()
+							{
+								try
+								{
+									((GameActivity)communicator.currentActivity).onMiss();
+								}
+								catch(Exception ex)
+								{
+									
+								}
+							}
+						}
+				);
+			}
+		}
 	}
 	
 	public void handleTurnOver(byte[] eventData)
@@ -144,10 +235,44 @@ public class Communications{
 		if(eventData[0] == communicator.communicationId)
 		{
 			//Opponents turn!
+			communicator.currentActivity.runOnUiThread
+			(
+					new Runnable()
+					{
+						public void run()
+						{
+							try
+							{
+								((GameActivity)communicator.currentActivity).setOpponentsTurn();
+							}
+							catch(Exception ex)
+							{
+								
+							}
+						}
+					}
+			);
 		}
 		else
 		{
 			//Your turn!
+			communicator.currentActivity.runOnUiThread
+			(
+					new Runnable()
+					{
+						public void run()
+						{
+							try
+							{
+								((GameActivity)communicator.currentActivity).setYourTurn();
+							}
+							catch(Exception ex)
+							{
+								
+							}
+						}
+					}
+			);
 		}
 	}
 	
@@ -155,7 +280,7 @@ public class Communications{
 	{
 		int i;
 		
-		for(i = 0; i < buf.length; i++)
+		for(i = 0; i < buf.length;)
 		{
 			if((char)buf[i] == Events.PLAYER_REGISTRED.getCode())
 			{
@@ -165,8 +290,15 @@ public class Communications{
 				
 				for(int j = 0; j < eventData.length; j++)
 				{
-					eventData[j] = buf[i];
-					i++;
+					if(i < buf.length)
+					{
+						eventData[j] = buf[i];
+						i++;
+					}
+					else
+					{
+						break;
+					}
 				}
 				
 				handlePlayerRegistered(eventData);
@@ -178,8 +310,24 @@ public class Communications{
 			}
 			else if((char)buf[i] == Events.ALL_PLAYERS_READY.getCode())
 			{
+				byte[] eventData = new byte[1];
+				
 				i++;
-				handleAllPlayersReady();
+				
+				for(int j = 0; j < eventData.length; j++)
+				{
+					if(i < buf.length)
+					{
+						eventData[j] = buf[i];
+						i++;
+					}
+					else
+					{
+						break;
+					}
+				}
+				
+				handleAllPlayersReady(eventData);
 			}
 			else if((char)buf[i] == Events.GAME_OVER.getCode())
 			{
@@ -195,7 +343,24 @@ public class Communications{
 			}
 			else if((char)buf[i] == Events.ATTACK_RESULT.getCode())
 			{
+				byte[] eventData = new byte[4];
+				
 				i++;
+				
+				for(int j = 0; j < eventData.length; j++)
+				{
+					if(i < buf.length)
+					{
+						eventData[j] = buf[i];
+						i++;
+					}
+					else
+					{
+						break;
+					}
+				}
+				
+				handleAttackResult(eventData);
 			}
 			else if((char)buf[i] == Events.TURN_OVER.getCode())
 			{
@@ -205,12 +370,23 @@ public class Communications{
 				
 				for(int j = 0; j < eventData.length; j++)
 				{
-					eventData[j] = buf[i];
-					i++;
+					if(i < buf.length)
+					{
+						eventData[j] = buf[i];
+						i++;
+					}
+					else
+					{
+						break;
+					}
 				}
 				
 				handleTurnOver(eventData);
-			}			
+			}	
+			else
+			{
+				i++;
+			}
 		}
 	}
 	

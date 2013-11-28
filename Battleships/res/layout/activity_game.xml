@@ -13,16 +13,16 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:columnCount="8"
-        android:columnWidth="60sp"
+        android:columnWidth="30sp"
         android:orientation="vertical"
         android:rowCount="8"
-        android:rowHeight="60sp"
+        android:rowHeight="30sp"
         android:stretchMode="columnWidth" >
 
 	    <ToggleButton
 	        android:id="@+id/grid00"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -34,8 +34,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid01"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -47,8 +47,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid02"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -60,8 +60,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid03"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -73,8 +73,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid04"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -86,8 +86,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid05"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -99,8 +99,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid06"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -112,8 +112,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid07"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -125,8 +125,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid10"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -138,8 +138,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid11"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -151,8 +151,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid12"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -164,8 +164,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid13"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -177,8 +177,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid14"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -190,8 +190,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid15"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -203,8 +203,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid16"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -216,8 +216,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid17"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -228,9 +228,9 @@
 	        android:button="@null" />
 	
 	    <ToggleButton
-	        android:id="@+id/grid20"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:id="@+id/grid30"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -242,8 +242,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid21"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -255,8 +255,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid22"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -268,8 +268,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid23"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -281,8 +281,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid24"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -294,8 +294,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid25"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -307,8 +307,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid26"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -320,8 +320,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid27"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -333,8 +333,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid30"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -346,8 +346,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid31"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -359,8 +359,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid32"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -372,8 +372,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid33"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -385,8 +385,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid34"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -398,8 +398,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid35"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -411,8 +411,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid36"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -424,8 +424,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid37"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -437,8 +437,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid40"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -450,8 +450,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid41"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -463,8 +463,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid42"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -476,8 +476,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid43"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -489,8 +489,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid44"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -502,8 +502,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid45"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -515,8 +515,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid46"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -528,8 +528,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid47"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -541,8 +541,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid50"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -554,8 +554,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid51"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -567,8 +567,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid52"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -580,8 +580,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid53"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -593,8 +593,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid54"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -606,8 +606,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid55"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -619,8 +619,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid56"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -632,8 +632,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid57"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -644,9 +644,9 @@
 	        android:button="@null" />
 	    
 	    <ToggleButton
-	        android:id="@+id/grid60"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:id="@+id/grid30"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -658,8 +658,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid61"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -671,8 +671,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid62"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -684,8 +684,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid63"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -697,8 +697,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid64"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -710,8 +710,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid65"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -723,8 +723,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid66"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -736,8 +736,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid67"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -749,8 +749,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid70"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -762,8 +762,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid71"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -775,8 +775,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid72"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -788,8 +788,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid73"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -801,8 +801,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/grid74"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -814,8 +814,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid75"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -827,8 +827,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid76"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -840,8 +840,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/grid77"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -893,7 +893,7 @@
     
     <GridLayout
         android:id="@+id/water"
-        android:layout_width="320sp"
+        android:layout_width="330sp"
         android:layout_height="wrap_content"
         android:rowCount="8"
         android:columnCount="1"
@@ -903,56 +903,56 @@
         <ImageView
             android:id="@+id/water0"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="0"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water1"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="1"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water2"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="2"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water3"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="3"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water4"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="4"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water5"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="5"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water6"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="6"
 			android:background="@drawable/water" />
         
         <ImageView
             android:id="@+id/water7"
 			android:layout_width="500sp"
-			android:layout_height="60sp"
+			android:layout_height="30sp"
 			android:layout_row="7"
 			android:background="@drawable/water" />
     </GridLayout>
@@ -962,18 +962,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="8"
-        android:columnWidth="60sp"
+        android:columnWidth="30sp"
         android:orientation="vertical"
         android:rowCount="8"
-        android:rowHeight="60sp"
+        android:rowHeight="30sp"
         android:layout_toRightOf="@id/water"
         android:layout_gravity="right"
         android:stretchMode="columnWidth" >
 
 	    <ToggleButton
 	        android:id="@+id/rightGrid00"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -985,8 +985,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid01"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -998,8 +998,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid02"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -1011,8 +1011,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid03"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1024,8 +1024,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid04"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1037,8 +1037,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid05"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1050,8 +1050,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid06"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1063,8 +1063,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid07"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="0"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1076,21 +1076,21 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid10"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
 	        android:textOn=""
 	        android:textOff=""
-	       android:onClick="onOpponentHouseToggleButtonClick"
+	        android:onClick="onOpponentHouseToggleButtonClick"
 	        android:background="@drawable/shape"
 	        android:button="@null" />
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid11"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1102,8 +1102,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid12"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -1115,8 +1115,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid13"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1128,8 +1128,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid14"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1141,8 +1141,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid15"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1154,8 +1154,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid16"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1167,8 +1167,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid17"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="1"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1179,9 +1179,9 @@
 	        android:button="@null" />
 	
 	    <ToggleButton
-	        android:id="@+id/rightGrid20"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:id="@+id/rightGrid30"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -1193,8 +1193,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid21"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1206,8 +1206,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid22"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -1219,8 +1219,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid23"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1232,8 +1232,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid24"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1245,8 +1245,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid25"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1258,8 +1258,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid26"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1271,8 +1271,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid27"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="2"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1284,8 +1284,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid30"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -1297,8 +1297,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid31"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1310,8 +1310,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid32"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="2"
 	        android:layout_gravity="left"
@@ -1323,8 +1323,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid33"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1336,8 +1336,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid34"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1349,8 +1349,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid35"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1362,8 +1362,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid36"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1375,8 +1375,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid37"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="3"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1388,8 +1388,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid40"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -1401,8 +1401,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid41"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1414,8 +1414,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid42"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -1427,8 +1427,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid43"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1440,8 +1440,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid44"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1453,8 +1453,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid45"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1466,8 +1466,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid46"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1479,8 +1479,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid47"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="4"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1492,8 +1492,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid50"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -1505,8 +1505,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid51"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1518,8 +1518,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid52"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -1531,8 +1531,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid53"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1544,8 +1544,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid54"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1557,8 +1557,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid55"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1570,8 +1570,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid56"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1583,8 +1583,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid57"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="5"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1595,9 +1595,9 @@
 	        android:button="@null" />
 	    
 	    <ToggleButton
-	        android:id="@+id/rightGrid60"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:id="@+id/rightGrid30"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -1609,8 +1609,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid61"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1622,8 +1622,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid62"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -1635,8 +1635,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid63"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1648,8 +1648,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid64"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1661,8 +1661,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid65"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1674,8 +1674,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid66"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1687,8 +1687,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid67"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="6"
 	        android:layout_row="7"
 	        android:layout_gravity="left"
@@ -1700,8 +1700,8 @@
 	
     <ToggleButton
 	        android:id="@+id/rightGrid70"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="0"
 	        android:layout_gravity="left"
@@ -1713,8 +1713,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid71"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="1"
 	        android:layout_gravity="left"
@@ -1726,8 +1726,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid72"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="2"
 	        android:layout_gravity=""
@@ -1739,8 +1739,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid73"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="3"
 	        android:layout_gravity="left"
@@ -1752,8 +1752,8 @@
 	
 	    <ToggleButton
 	        android:id="@+id/rightGrid74"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="4"
 	        android:layout_gravity="left"
@@ -1765,8 +1765,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid75"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="5"
 	        android:layout_gravity="left"
@@ -1778,8 +1778,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid76"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="6"
 	        android:layout_gravity="left"
@@ -1791,8 +1791,8 @@
 	    
 	    <ToggleButton
 	        android:id="@+id/rightGrid77"
-	        android:layout_width="60sp"
-	        android:layout_height="60sp"
+	        android:layout_width="30sp"
+	        android:layout_height="30sp"
 	        android:layout_column="7"
 	        android:layout_row="7"
 	        android:layout_gravity="left"

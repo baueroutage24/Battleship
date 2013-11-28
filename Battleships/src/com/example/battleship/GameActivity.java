@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -175,6 +176,36 @@ public class GameActivity extends Activity {
 	  }
   }
   
+  public void onHit()
+  {
+	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
+	  for(int i = 0; i< grid.getChildCount(); i++)
+	  {
+		  if(((ToggleButton) grid.getChildAt(i)).isChecked())
+		  {
+			  ((ToggleButton) grid.getChildAt(i)).setChecked(false);
+			  ((ToggleButton) grid.getChildAt(i)).setClickable(false);
+			  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.attack_hit);
+			  break;
+		  }
+	  }
+  }
+  
+  public void onMiss()
+  {
+	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
+	  for(int i = 0; i< grid.getChildCount(); i++)
+	  {
+		  if(((ToggleButton) grid.getChildAt(i)).isChecked())
+		  {
+			  ((ToggleButton) grid.getChildAt(i)).setChecked(false);
+			  ((ToggleButton) grid.getChildAt(i)).setClickable(false);
+			  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.attack_miss);
+			  break;
+		  }
+	  }
+  }
+  
   public void onConfirmAttackButtonClick(View view)
   {
 	  String attackMessage = makeAttackMessage(placeBasicAttack());
@@ -191,7 +222,7 @@ public class GameActivity extends Activity {
 		  if(((ToggleButton) grid.getChildAt(i)).isChecked())
 		  {
 			  attackIndex = i;
-			  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.attack_test);
+			  ((ToggleButton) grid.getChildAt(i)).setClickable(false);
 			  break;
 		  }
 	  }
@@ -265,8 +296,7 @@ public class GameActivity extends Activity {
 	  default:
 		  break;			 
 	  }
-	  attackMessage += attackLocationString;
-	  attackMessage += attackLocationString;
+	  attackMessage += attackLocationString + attackLocationString;
 	  return attackMessage;
   }
   
@@ -328,14 +358,40 @@ public class GameActivity extends Activity {
 		  findViewById(R.id.resetButton).setVisibility(View.GONE);
 		  findViewById(R.id.confirmButton).setClickable(false);
 		  findViewById(R.id.confirmButton).setVisibility(View.GONE);
-		  ((TextView) findViewById(R.id.messageText)).setText(mapAsString);
 		  sendMessage(mapAsString);
+		  setWaitingForPlayersToBeReady();
 	  }
 	  else
 	  {
 		  String toPrint = "Need to place " + MAX_HOUSES + " houses.";
 		  ((TextView) findViewById(R.id.messageText)).setText(toPrint);
 	  }
+  }
+  
+  private void setWaitingForPlayersToBeReady()
+  {
+	  Intent intent = new Intent(this, OverlayService.class);
+	  intent.putExtra("ALERT_TEXT", "Waiting for all players to be ready.");
+	  startService(intent);
+  }
+  
+  public void setAllPlayersNowReady()
+  {
+	  Intent intent = new Intent(this, OverlayService.class);
+	  stopService(intent);
+  }
+  
+  public void setOpponentsTurn()
+  {
+	  Intent intent = new Intent(this, OverlayService.class);
+	  intent.putExtra("ALERT_TEXT", "Opponnent's turn!");
+	  startService(intent);
+  }
+  
+  public void setYourTurn()
+  {
+	  Intent intent = new Intent(this, OverlayService.class);
+	  stopService(intent);
   }
   
   public void onResetButtonClick(View view)
@@ -359,6 +415,27 @@ public class GameActivity extends Activity {
 		Communications.getCommunications().sendMessage(message);
 	}
 	
+	@Override
+	public void onDestroy()
+	{
+		super.onDestroy();
+		
+		Intent overlayIntent = new Intent(this, OverlayService.class);
+		stopService(overlayIntent);
+	}
+	
+	@Override
+	public void onBackPressed() {
+	    super.onBackPressed();
+	    return;
+	} 
+	
+	@Override
+	public void onAttachedToWindow() {
+	    super.onAttachedToWindow();
+	    Intent overlayIntent = new Intent(this, OverlayService.class);
+		stopService(overlayIntent);          
+	}
 	
 	public void updatePlayerHouse(String receivedMessage)
 	{
