@@ -185,6 +185,9 @@ public class Communications{
 	
 	public void handleAttackResult(byte[] eventData)
 	{
+		final int x = eventData[2];
+		final int y = eventData[3];
+		
 		if(eventData[0] != communicator.communicationId)
 		{
 			if(eventData[1] == 'A')
@@ -197,7 +200,7 @@ public class Communications{
 							{
 								try
 								{
-									((GameActivity)communicator.currentActivity).onHit();
+									((GameActivity)communicator.currentActivity).onHit(x, y);
 								}
 								catch(Exception ex)
 								{
@@ -217,7 +220,7 @@ public class Communications{
 							{
 								try
 								{
-									((GameActivity)communicator.currentActivity).onMiss();
+									((GameActivity)communicator.currentActivity).onMiss(x, y);
 								}
 								catch(Exception ex)
 								{
@@ -230,9 +233,6 @@ public class Communications{
 		}
 		else
 		{
-			final int x = eventData[2];
-			final int y = eventData[3];
-			
 			if(eventData[1] == 'A')
 			{
 				communicator.currentActivity.runOnUiThread

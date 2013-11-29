@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,6 +13,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -22,10 +22,11 @@ import android.widget.ToggleButton;
 public class GameActivity extends Activity {
   
 /** Called when the activity is first created. */
+	int attackType = 0;
 	int houseCount = 0;
 	int[] houses = new int[10];
 	int attackCount = 0;
-	int[] attackLocations = new int[5];
+	int[] attackLocations = { -1, -1, -1, -1, -1};
 	boolean[] pastAttacks = new boolean[64];
 	String mapAsString = "";
 	final int GRID_WIDTH = 8;
@@ -185,34 +186,32 @@ public class GameActivity extends Activity {
 	  }
   }
   
-  public void onHit()
+  public void onHit(int x, int y)
   {
+	  int shiftedX = x - 'A';
+	  int shiftedY = y - 'A';
+	  
+	  int hitIndex = shiftedX + (8 * shiftedY);
+			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  for(int i = 0; i< grid.getChildCount(); i++)
-	  {
-		  if(((ToggleButton) grid.getChildAt(i)).isChecked())
-		  {
-			  ((ToggleButton) grid.getChildAt(i)).setChecked(false);
-			  ((ToggleButton) grid.getChildAt(i)).setClickable(false);
-			  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.attack_hit);
-			  break;
-		  }
-	  }
+	  
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
   }
   
-  public void onMiss()
+  public void onMiss(int x, int y)
   {
+	  int shiftedX = x - 'A';
+	  int shiftedY = y - 'A';
+	  
+	  int hitIndex = shiftedX + (8 * shiftedY);
+			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  for(int i = 0; i< grid.getChildCount(); i++)
-	  {
-		  if(((ToggleButton) grid.getChildAt(i)).isChecked())
-		  {
-			  ((ToggleButton) grid.getChildAt(i)).setChecked(false);
-			  ((ToggleButton) grid.getChildAt(i)).setClickable(false);
-			  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.attack_miss);
-			  break;
-		  }
-	  }
+	  
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
   }
   
   public void onSelfMiss(int x, int y)
@@ -573,6 +572,70 @@ public class GameActivity extends Activity {
 		for(int i = 0; i < attackButtonGrid.getChildCount(); i++)
 		{
 			((Button) attackButtonGrid.getChildAt(i)).setClickable(true);
+		}
+	}
+	
+	public void onAttackSelection(View view)
+	{
+		boolean checked = ((RadioButton) view).isChecked();
+		switch(view.getId())
+		{
+		case (R.id.basicAttackRadioButton):
+		{
+			if (checked)
+				attackType = 0;
+			break;
+		}
+		case (R.id.verticalAttackRadioButton):
+		{
+			if (checked)
+				attackType = 1;
+			break;
+		}
+		case (R.id.diagonalAttackBLTRRadioButton):
+		{
+			if (checked)
+				attackType = 2;
+			break;
+		}
+		case (R.id.diagonalAttackTLBR):
+		{
+			if (checked)
+				attackType = 3;
+			break;
+		}
+		case (R.id.tetrisAttackRadioButton):
+		{
+			if (checked)
+				attackType = 4;
+			break;
+		}
+		case (R.id.xAttackRadioButton):
+		{
+			if (checked)
+				attackType = 5;
+			break;
+		}
+		case (R.id.plusAttackRadioButton):
+		{
+			if (checked)
+				attackType = 6;
+			break;
+		}
+		case (R.id.chooseFourAttackRadioButton7):
+		{
+			if (checked)
+				attackType = 7;
+			break;
+		}
+		case (R.id.squareAttackRadioButton):
+		{
+			if (checked)
+				attackType = 8;
+			break;
+		}
+		default:
+			attackType = 0;
 		}
 	}
 	
