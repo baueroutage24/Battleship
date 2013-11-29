@@ -26,28 +26,6 @@ public class ConnectActivity extends Activity {
 		setContentView(R.layout.activity_connect);
 	}
 	
-	@Override
-	public void onDestroy()
-	{
-		super.onDestroy();
-		
-		Intent overlayIntent = new Intent(this, OverlayService.class);
-		stopService(overlayIntent);
-	}
-	
-	@Override
-	public void onBackPressed() {
-	    super.onBackPressed();
-	    return;
-	} 
-	
-	@Override
-	public void onAttachedToWindow() {
-	    super.onAttachedToWindow();
-	    Intent overlayIntent = new Intent(this, OverlayService.class);
-		stopService(overlayIntent);          
-	}
-	
 	public void start_setup()
 	{
 		Intent overlayIntent = new Intent(this, OverlayService.class);
@@ -69,15 +47,12 @@ public class ConnectActivity extends Activity {
 	
 	public void setWaitingForPlayersToConnect()
     {
-	  Intent intent = new Intent(this, OverlayService.class);
-	  intent.putExtra("ALERT_TEXT", "Waiting for all players to connect.");
-	  startService(intent);
+	  findViewById(R.id.connectionOverlay).setVisibility(View.VISIBLE);
     }
 	
 	public void setAllPlayersNowConnected()
     {
-	  Intent intent = new Intent(this, OverlayService.class);
-	  stopService(intent);
+		findViewById(R.id.connectionOverlay).setVisibility(View.GONE);
     }
 
 	// Construct an IP address from the four boxes
