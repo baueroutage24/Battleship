@@ -228,7 +228,7 @@
 	        android:button="@null" />
 	
 	    <ToggleButton
-	        android:id="@+id/grid30"
+	        android:id="@+id/grid20"
 	        android:layout_width="30sp"
 	        android:layout_height="30sp"
 	        android:layout_column="2"
@@ -644,7 +644,7 @@
 	        android:button="@null" />
 	    
 	    <ToggleButton
-	        android:id="@+id/grid30"
+	        android:id="@+id/grid60"
 	        android:layout_width="30sp"
 	        android:layout_height="30sp"
 	        android:layout_column="6"
@@ -1179,7 +1179,7 @@
 	        android:button="@null" />
 	
 	    <ToggleButton
-	        android:id="@+id/rightGrid30"
+	        android:id="@+id/rightGrid20"
 	        android:layout_width="30sp"
 	        android:layout_height="30sp"
 	        android:layout_column="2"
@@ -1595,7 +1595,7 @@
 	        android:button="@null" />
 	    
 	    <ToggleButton
-	        android:id="@+id/rightGrid30"
+	        android:id="@+id/rightGrid60"
 	        android:layout_width="30sp"
 	        android:layout_height="30sp"
 	        android:layout_column="6"
