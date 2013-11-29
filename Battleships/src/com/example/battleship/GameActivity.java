@@ -11,7 +11,9 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -23,6 +25,7 @@ public class GameActivity extends Activity {
 	int[] houses = new int[10];
 	int attackCount = 0;
 	int[] attackLocations = new int[5];
+	boolean[] pastAttacks = new boolean[64];
 	String mapAsString = "";
 	final int GRID_WIDTH = 8;
 	final int GRID_HEIGHT = 8;
@@ -35,6 +38,7 @@ public class GameActivity extends Activity {
     setContentView(R.layout.activity_game);
 	TextView housesLeftTextView = (TextView) findViewById(R.id.housesLeft);
 	housesLeftTextView.setText(25 - houseCount + " houses left to place.");
+	Arrays.fill(pastAttacks, false);
     Communications.setActivity(this);
     // Send ready
   }
@@ -71,6 +75,8 @@ public class GameActivity extends Activity {
 			  count++;
 	  }
 	  houseCount = count;
+	  if(houseCount > MAX_HOUSES)
+		  houseCount = MAX_HOUSES;
 	  return count;
   }
   
@@ -236,8 +242,10 @@ public class GameActivity extends Activity {
   
   public void onConfirmAttackButtonClick(View view)
   {
-	  String attackMessage = makeAttackMessage(placeBasicAttack());
-	  ((TextView) findViewById(R.id.attackMessageText)).setText(attackMessage);
+	  int attackIndex = placeBasicAttack();
+	  pastAttacks[attackIndex] = true;
+	  String attackMessage = makeAttackMessage(attackIndex);
+	  //((TextView) findViewById(R.id.attackMessageText)).setText(attackMessage);
 	  sendMessage(attackMessage);
   }
   
@@ -398,28 +406,36 @@ public class GameActivity extends Activity {
   
   private void setWaitingForPlayersToBeReady()
   {
-	  Intent intent = new Intent(this, OverlayService.class);
+	  /*Intent intent = new Intent(this, OverlayService.class);
 	  intent.putExtra("ALERT_TEXT", "Waiting for all players to be ready.");
-	  startService(intent);
+	  startService(intent);*/
+	  findViewById(R.id.overlay).setVisibility(View.VISIBLE);
+	  disableBoard();
   }
   
   public void setAllPlayersNowReady()
   {
-	  Intent intent = new Intent(this, OverlayService.class);
-	  stopService(intent);
+	  /*Intent intent = new Intent(this, OverlayService.class);
+	  stopService(intent);*/
+	  findViewById(R.id.overlay).setVisibility(View.GONE);
+	  enableBoard();
   }
   
   public void setOpponentsTurn()
   {
-	  Intent intent = new Intent(this, OverlayService.class);
+	  /*Intent intent = new Intent(this, OverlayService.class);
 	  intent.putExtra("ALERT_TEXT", "Opponnent's turn!");
-	  startService(intent);
+	  startService(intent);*/
+	  findViewById(R.id.overlay).setVisibility(View.VISIBLE);
+	  disableBoard();
   }
   
   public void setYourTurn()
   {
-	  Intent intent = new Intent(this, OverlayService.class);
-	  stopService(intent);
+	  /*Intent intent = new Intent(this, OverlayService.class);
+	  stopService(intent);*/
+	  findViewById(R.id.overlay).setVisibility(View.GONE);
+	  enableBoard();
   }
   
   public void onResetButtonClick(View view)
@@ -547,6 +563,38 @@ public class GameActivity extends Activity {
 			house.draw(canvas);
 		}
 	}
+	
+	void disableBoard()
+	{
+		GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
+		for(int i = 0; i < grid.getChildCount(); i++)
+		{
+			((ToggleButton) grid.getChildAt(i)).setClickable(false);
+		}
+		RelativeLayout attackButtonGrid = (RelativeLayout) findViewById(R.id.attackButtonGrid);
+		for(int i = 0; i < attackButtonGrid.getChildCount(); i++)
+		{
+			((Button) attackButtonGrid.getChildAt(i)).setClickable(false);
+		}
+	}
+	
+	void enableBoard()
+	{
+		GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
+		for(int i = 0; i < grid.getChildCount(); i++)
+		{
+			if(!pastAttacks[i])
+			{
+				((ToggleButton) grid.getChildAt(i)).setClickable(true);
+			}
+		}
+		RelativeLayout attackButtonGrid = (RelativeLayout) findViewById(R.id.attackButtonGrid);
+		for(int i = 0; i < attackButtonGrid.getChildCount(); i++)
+		{
+			((Button) attackButtonGrid.getChildAt(i)).setClickable(true);
+		}
+	}
+	
   /*public void onRotateButtonClick(View view)
   {
 	  try

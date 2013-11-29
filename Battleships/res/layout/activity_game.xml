@@ -7,6 +7,24 @@
     android:rowCount="2"
     android:stretchMode="columnWidth" >
     
+    <RelativeLayout 
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/transparent_overlay"
+        android:visibility="invisible" >
+        
+        <TextView 
+            android:id="@+id/overlayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="10pt"
+            android:text="Overlay" />
+        
+    </RelativeLayout>
+    
     <GridLayout
         android:id="@+id/mainGrid"
         android:layout_width="wrap_content"
@@ -1829,11 +1847,11 @@
             android:layout_toRightOf="@id/attackResetButton"
             android:text="Confirm attack" />
 
-        <TextView
-            android:id="@+id/attackMessageText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/attackResetButton" />
+<!--         <TextView -->
+<!--             android:id="@+id/attackMessageText" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_below="@id/attackResetButton" /> -->
     </RelativeLayout>
     
 </RelativeLayout>

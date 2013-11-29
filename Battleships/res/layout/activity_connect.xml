@@ -4,6 +4,24 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
+    <RelativeLayout 
+        android:id="@+id/connectionOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/transparent_overlay"
+        android:visibility="invisible" >
+        
+        <TextView
+            android:id="@+id/connectionOverlayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="10pt"
+            android:text="Overlay" />
+        
+    </RelativeLayout>
+    
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
