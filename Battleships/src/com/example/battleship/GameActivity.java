@@ -211,7 +211,7 @@ public class GameActivity extends Activity {
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
-	  int hitIndex = shiftedX * (shiftedY + 1);
+	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.mainGrid);
 	  
@@ -225,7 +225,7 @@ public class GameActivity extends Activity {
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
-	  int hitIndex = shiftedX * (shiftedY + 1);
+	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.mainGrid);
 	  
