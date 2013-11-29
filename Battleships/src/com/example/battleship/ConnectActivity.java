@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,13 +24,13 @@ public class ConnectActivity extends Activity {
 				.penaltyLog().build());
 
 		super.onCreate(savedInstanceState);
+		//Remove title bar
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_connect);
 	}
 	
 	public void start_setup()
 	{
-		Intent overlayIntent = new Intent(this, OverlayService.class);
-		stopService(overlayIntent);
 		Intent intent = new Intent(this, GameActivity.class);
 		startActivity(intent);
 	}

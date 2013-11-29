@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.RelativeLayout;
@@ -35,6 +36,8 @@ public class GameActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+	//Remove title bar
+	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.activity_game);
 	TextView housesLeftTextView = (TextView) findViewById(R.id.housesLeft);
 	housesLeftTextView.setText(25 - houseCount + " houses left to place.");
@@ -457,28 +460,6 @@ public class GameActivity extends Activity {
 	public void sendMessage(String message)
 	{
 		Communications.getCommunications().sendMessage(message);
-	}
-	
-	@Override
-	public void onDestroy()
-	{
-		super.onDestroy();
-		
-		Intent overlayIntent = new Intent(this, OverlayService.class);
-		stopService(overlayIntent);
-	}
-	
-	@Override
-	public void onBackPressed() {
-	    super.onBackPressed();
-	    return;
-	} 
-	
-	@Override
-	public void onAttachedToWindow() {
-	    super.onAttachedToWindow();
-	    Intent overlayIntent = new Intent(this, OverlayService.class);
-		stopService(overlayIntent);          
 	}
 	
 	public void updatePlayerHouse(String receivedMessage)
