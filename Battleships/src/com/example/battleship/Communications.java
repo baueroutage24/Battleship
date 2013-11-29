@@ -228,6 +228,52 @@ public class Communications{
 				);
 			}
 		}
+		else
+		{
+			final int x = eventData[2];
+			final int y = eventData[3];
+			
+			if(eventData[1] == 'A')
+			{
+				communicator.currentActivity.runOnUiThread
+				(
+						new Runnable()
+						{
+							public void run()
+							{
+								try
+								{
+									((GameActivity)communicator.currentActivity).onSelfHit(x, y);
+								}
+								catch(Exception ex)
+								{
+									
+								}
+							}
+						}
+				);
+			}
+			else
+			{
+				communicator.currentActivity.runOnUiThread
+				(
+						new Runnable()
+						{
+							public void run()
+							{
+								try
+								{
+									((GameActivity)communicator.currentActivity).onSelfMiss(x, y);
+								}
+								catch(Exception ex)
+								{
+									
+								}
+							}
+						}
+				);
+			}
+		}
 	}
 	
 	public void handleTurnOver(byte[] eventData)

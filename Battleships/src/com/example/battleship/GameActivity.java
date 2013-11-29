@@ -206,6 +206,34 @@ public class GameActivity extends Activity {
 	  }
   }
   
+  public void onSelfMiss(int x, int y)
+  {
+	  int shiftedX = x - 'A';
+	  int shiftedY = y - 'A';
+	  
+	  int hitIndex = shiftedX * (shiftedY + 1);
+			  
+	  GridLayout grid = (GridLayout) findViewById(R.id.mainGrid);
+	  
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
+  }
+  
+  public void onSelfHit(int x, int y)
+  {
+	  int shiftedX = x - 'A';
+	  int shiftedY = y - 'A';
+	  
+	  int hitIndex = shiftedX * (shiftedY + 1);
+			  
+	  GridLayout grid = (GridLayout) findViewById(R.id.mainGrid);
+	  
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
+	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
+  }
+  
   public void onConfirmAttackButtonClick(View view)
   {
 	  String attackMessage = makeAttackMessage(placeBasicAttack());
