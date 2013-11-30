@@ -26,7 +26,7 @@ public class GameActivity extends Activity {
 	int houseCount = 0;
 	int[] houses = new int[10];
 	int attackCount = 0;
-	int[] attackLocations = { -1, -1, -1, -1, -1};
+	int[] attackLocations = { -1, -1, -1, -1, -1, -1, -1, -1, -1};
 	boolean[] pastAttacks = new boolean[64];
 	String mapAsString = "";
 	final int GRID_WIDTH = 8;
@@ -114,15 +114,15 @@ public class GameActivity extends Activity {
   public void onOpponentHouseToggleButtonClick(View view)
   {
 	  ToggleButton opponentHouse = (ToggleButton) view;
-	  //removePreviousBasicAttackSelection();
+	  removePreviousBasicAttackSelection();
 	  if(opponentHouse.isChecked())
 	  {
-		  //attackLocations[attackCount] = getIndexInParent(opponentHouse);
-		  //attackCount++;
-		  if(opponentHouse.getBackground().equals(R.drawable.house))
-			  opponentHouse.setBackgroundResource(R.drawable.opponent_house);
-		  else
-			  opponentHouse.setBackgroundResource(R.drawable.attack_location); // change to attack location. maybe an X
+		  addAttackLocations(opponentHouse);
+			  if(opponentHouse.getBackground().equals(R.drawable.house))
+				  opponentHouse.setBackgroundResource(R.drawable.opponent_house);
+			  else
+				  opponentHouse.setBackgroundResource(R.drawable.attack_location); // change to attack location. maybe an X
+		  //}
 	  }
 	  else
 	  {
@@ -134,15 +134,23 @@ public class GameActivity extends Activity {
 	  }
   }
   
+  void addAttackLocations(ToggleButton location)
+  {
+	  attackLocations[attackCount] = getIndexInParent(location);
+	  attackCount++;
+  }
+  
   int getIndexInParent(ToggleButton view)
   {
 	  int index = -1;
-	  GridLayout grid = (GridLayout) findViewById(R.id.mainGrid);
+	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
 	  for(int i = 0; i < grid.getChildCount(); i++)
 	  {
-		  if(((ToggleButton) grid.getChildAt(i)).getId() == view.getId())
+		  if(grid.getChildAt(i).getId() == view.getId())
+		  {
 			  index = i;
-		  break;
+			  break;
+		  }
 	  }
 	  return index;
   }
@@ -150,15 +158,21 @@ public class GameActivity extends Activity {
   void removePreviousBasicAttackSelection()
   {
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  updateAttackPlacement();
+	  for(int i = 0; i < attackCount; i++)
+	  {
+		  if(attackLocations[i] >= 0)
+		  {
+			  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(false);
+			  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.shape);
+		  }
+	  }
 	  Arrays.fill(attackLocations, -1);
 	  attackCount = 0;
   }
   
-  void updateAttackPlacement()
+  void updateAttackPlacement(GridLayout grid)
   {
-	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  for(int i = 0; i < grid.getChildCount(); i++)
+	  for(int i = 0; i < attackCount; i++)
 	  {
 		  ((ToggleButton) grid.getChildAt(i)).setChecked(false);
 		  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.shape);
@@ -167,8 +181,8 @@ public class GameActivity extends Activity {
 	  {
 		  if(attackLocations[i] >= 0)
 		  {
-			  ((ToggleButton) grid.getChildAt(i)).setChecked(true);
-			  ((ToggleButton) grid.getChildAt(i)).setBackgroundResource(R.drawable.attack_test);
+			  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(true);
+			  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.attack_location);
 		  }
 	  }
   }
