@@ -3,10 +3,10 @@ import java.util.Timer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -24,8 +24,7 @@ public class ConnectActivity extends Activity {
 				.penaltyLog().build());
 
 		super.onCreate(savedInstanceState);
-		//Remove title bar
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		setContentView(R.layout.activity_connect);
 	}
 	
