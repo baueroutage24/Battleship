@@ -113,16 +113,23 @@ public class GameActivity extends Activity {
   
   public void onOpponentHouseToggleButtonClick(View view)
   {
+	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
 	  ToggleButton opponentHouse = (ToggleButton) view;
 	  removePreviousBasicAttackSelection();
 	  if(opponentHouse.isChecked())
 	  {
 		  addAttackLocations(opponentHouse);
-			  if(opponentHouse.getBackground().equals(R.drawable.house))
-				  opponentHouse.setBackgroundResource(R.drawable.opponent_house);
-			  else
-				  opponentHouse.setBackgroundResource(R.drawable.attack_location); // change to attack location. maybe an X
-		  //}
+		  for(int i = 0; i < attackCount; i++)
+		  {
+			  if(attackLocations[i] >= 0 && attackLocations[i] < 64)
+			  {
+				  ToggleButton thisHouse = (ToggleButton) grid.getChildAt(attackLocations[i]);
+				  if(thisHouse.getBackground().equals(R.drawable.house))
+					  thisHouse.setBackgroundResource(R.drawable.opponent_house);
+				  else
+					  thisHouse.setBackgroundResource(R.drawable.attack_location); // change to attack location. maybe an X
+			  }
+		  }
 	  }
 	  else
 	  {
@@ -136,8 +143,215 @@ public class GameActivity extends Activity {
   
   void addAttackLocations(ToggleButton location)
   {
-	  attackLocations[attackCount] = getIndexInParent(location);
-	  attackCount++;
+	  int attackLocation = getIndexInParent(location);
+	  switch(attackType)
+	  {
+		  case 0:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  break;
+		  }
+		  case 1:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 1;
+				  attackCount++;
+			  }
+			  if(attackLocation % 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 1;
+				  attackCount++;
+			  }
+			  break; 
+		  }
+		  case 2:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 7 && attackLocation / 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation + 7;
+				  attackCount++;
+			  }
+			  if(attackLocation % 8 != 0 && attackLocation / 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation - 7;
+				  attackCount++;
+			  }
+			  break;
+		  }
+		  case 3:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 7 && attackLocation / 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 9;
+				  attackCount++;
+			  }
+			  if(attackLocation % 8 != 0 && attackLocation / 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 9;
+				  attackCount++;
+			  }
+			  break;
+		  }
+		  case 4:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 1;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 8;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation - 8;
+				  attackCount++;
+			  }
+			  break;
+		  }
+		  case 5:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 0)
+			  {
+				  if(attackLocation / 8 != 0)
+				  {
+					  attackLocations[attackCount] = attackLocation - 9;
+					  attackCount++;
+				  }
+				  if(attackLocation / 8 != 7)
+				  {
+					  attackLocations[attackCount] = attackLocation + 7;
+					  attackCount++;
+				  }
+			  }
+			  if(attackLocation % 8 != 7)
+			  {
+				  if(attackLocation / 8 != 7)
+				  {
+					  attackLocations[attackCount] = attackLocation + 9;
+					  attackCount++;
+				  }
+				  if(attackLocation / 8 != 0)
+				  {
+					  attackLocations[attackCount] = attackLocation - 7;
+					  attackCount++;
+				  }
+			  }
+			  break;
+		  }
+		  case 6:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 1;
+				  attackCount++;
+				  attackLocations[attackCount] = attackLocation - 2;
+				  attackCount++;
+			  }
+			  if(attackLocation % 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 1;
+				  attackCount++;
+				  attackLocations[attackCount] = attackLocation + 2;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 8;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 1)
+			  {
+				  attackLocations[attackCount] = attackLocation - 16;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 8;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 6)
+			  {
+			  attackLocations[attackCount] = attackLocation + 16;
+			  attackCount++;
+			  }
+			  break;
+		  }
+		  case 7:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  break;
+		  }
+		  case 8:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  if(attackLocation % 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 1;
+				  attackCount++;
+				  if(attackLocation / 8 != 0)
+				  {
+					  attackLocations[attackCount] = attackLocation - 9;
+					  attackCount++;
+				  }
+				  if(attackLocation / 8 != 7)
+				  {
+					  attackLocations[attackCount] = attackLocation + 7;
+					  attackCount++;
+				  }
+			  }
+			  if(attackLocation % 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 1;
+				  attackCount++;
+				  if(attackLocation / 8 != 0)
+				  {
+					  attackLocations[attackCount] = attackLocation - 7;
+					  attackCount++;
+				  }
+				  if(attackLocation / 8 != 7)
+				  {
+					  attackLocations[attackCount] = attackLocation + 9;
+					  attackCount++;
+				  }
+			  }
+			  if(attackLocation / 8 != 0)
+			  {
+				  attackLocations[attackCount] = attackLocation - 8;
+				  attackCount++;
+			  }
+			  if(attackLocation / 8 != 7)
+			  {
+				  attackLocations[attackCount] = attackLocation + 8;
+				  attackCount++;
+			  }
+			  break;
+		  }
+		  default:
+		  {
+			  attackLocations[attackCount] = attackLocation;
+			  attackCount++;
+			  break;
+		  }
+	  }
   }
   
   int getIndexInParent(ToggleButton view)
@@ -160,10 +374,13 @@ public class GameActivity extends Activity {
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
 	  for(int i = 0; i < attackCount; i++)
 	  {
-		  if(attackLocations[i] >= 0)
+		  if(attackLocations[i] >= 0 && attackLocations[i] < 64)
 		  {
-			  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(false);
-			  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.shape);
+			  if(!pastAttacks[attackLocations[i]])
+			  {
+				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(false);
+				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.shape);
+			  }
 		  }
 	  }
 	  Arrays.fill(attackLocations, -1);
@@ -258,97 +475,93 @@ public class GameActivity extends Activity {
   
   public void onConfirmAttackButtonClick(View view)
   {
-	  int attackIndex = placeBasicAttack();
-	  pastAttacks[attackIndex] = true;
-	  String attackMessage = makeAttackMessage(attackIndex);
-	  //((TextView) findViewById(R.id.attackMessageText)).setText(attackMessage);
+	  placeAttack();
+	  String attackMessage = makeAttackMessage();
 	  sendMessage(attackMessage);
   }
   
-  public int placeBasicAttack()
+  public void placeAttack()
   {
-	  int attackIndex = -1;
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  for(int i = 0; i< grid.getChildCount(); i++)
+	  for(int i = 0; i< attackCount; i++)
 	  {
-		  if(((ToggleButton) grid.getChildAt(i)).isChecked())
-		  {
-			  attackIndex = i;
-			  ((ToggleButton) grid.getChildAt(i)).setClickable(false);
-			  break;
-		  }
+		  ((ToggleButton) grid.getChildAt(attackLocations[i])).setClickable(false);
+		  pastAttacks[attackLocations[i]] = true;
 	  }
-	  return attackIndex;
   }
   
-  public String makeAttackMessage(int attackLocation)
+  public String makeAttackMessage()
   {
-	  String attackMessage = "EA";
-	  String attackLocationString = "";
+	  int attackLocation;
+	  int column;
+	  int row;
+	  String attackMessage = "EB" + (char)attackCount;
 	  // translate to b/w AA and EE
-	  int column = attackLocation / GRID_WIDTH;
-	  int row = attackLocation % GRID_HEIGHT;
-	  
-	  switch (row)
+	  for(int i = 0; i < attackCount; i++)
 	  {
-	  case 0:
-		  attackLocationString += 'A';
-		  break;
-	  case 1:
-		  attackLocationString += 'B';
-		  break;
-	  case 2:
-		  attackLocationString += 'C';
-		  break;
-	  case 3:
-		  attackLocationString += 'D';
-		  break;
-	  case 4:
-		  attackLocationString += 'E';
-		  break;
-	  case 5:
-		  attackLocationString += 'F';
-		  break;
-	  case 6:
-		  attackLocationString += 'G';
-		  break;
-	  case 7:
-		  attackLocationString += 'H';
-		  break;
-	  default:
-		  break;			 
+		  attackLocation = attackLocations[i];
+		  column = attackLocation / GRID_WIDTH;
+		  row = attackLocation % GRID_HEIGHT;
+		  switch (row)
+		  {
+		  case 0:
+			  attackMessage += 'A';
+			  break;
+		  case 1:
+			  attackMessage += 'B';
+			  break;
+		  case 2:
+			  attackMessage += 'C';
+			  break;
+		  case 3:
+			  attackMessage += 'D';
+			  break;
+		  case 4:
+			  attackMessage += 'E';
+			  break;
+		  case 5:
+			  attackMessage += 'F';
+			  break;
+		  case 6:
+			  attackMessage += 'G';
+			  break;
+		  case 7:
+			  attackMessage += 'H';
+			  break;
+		  default:
+			  break;			 
+		  }
+		  
+		  switch (column)
+		  {
+		  case 0:
+			  attackMessage += 'A';
+			  break;
+		  case 1:
+			  attackMessage += 'B';
+			  break;
+		  case 2:
+			  attackMessage += 'C';
+			  break;
+		  case 3:
+			  attackMessage += 'D';
+			  break;
+		  case 4:
+			  attackMessage += 'E';
+			  break;
+		  case 5:
+			  attackMessage += 'F';
+			  break;
+		  case 6:
+			  attackMessage += 'G';
+			  break;
+		  case 7:
+			  attackMessage += 'H';
+			  break;
+		  default:
+			  break;			 
+		  }
 	  }
-	  
-	  switch (column)
-	  {
-	  case 0:
-		  attackLocationString += 'A';
-		  break;
-	  case 1:
-		  attackLocationString += 'B';
-		  break;
-	  case 2:
-		  attackLocationString += 'C';
-		  break;
-	  case 3:
-		  attackLocationString += 'D';
-		  break;
-	  case 4:
-		  attackLocationString += 'E';
-		  break;
-	  case 5:
-		  attackLocationString += 'F';
-		  break;
-	  case 6:
-		  attackLocationString += 'G';
-		  break;
-	  case 7:
-		  attackLocationString += 'H';
-		  break;
-	  default:
-		  break;			 
-	  }
-	  attackMessage += attackLocationString + attackLocationString;
 	  return attackMessage;
   }
   
@@ -386,7 +599,7 @@ public class GameActivity extends Activity {
   
   public void onConfirmButtonClick(View view)
   {
-	  findViewById(R.id.housesLeft).setVisibility(view.INVISIBLE);
+	  findViewById(R.id.housesLeft).setVisibility(View.INVISIBLE);
 	  mapAsString = "";
 	  if(checkNumberOfHouses() == MAX_HOUSES)
 	  {

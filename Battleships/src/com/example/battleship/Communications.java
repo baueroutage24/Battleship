@@ -10,7 +10,6 @@ import java.util.TimerTask;
 import android.app.Activity;
 import android.app.Application;
 import android.os.AsyncTask;
-import android.view.View;
 
 public class Communications{
 	
