@@ -1857,10 +1857,10 @@
             android:background="@drawable/attack_diagonal_tlbr_65dp"
             android:onClick="onAttackSelection" />
         <RadioButton
-            android:id="@+id/tetrisAttackRadioButton"
+            android:id="@+id/horizontalAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_tetris_65dp"
+            android:background="@drawable/attack_horizontal_65dp"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/xAttackRadioButton"

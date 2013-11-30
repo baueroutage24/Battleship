@@ -8,9 +8,9 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.RadioButton;
@@ -39,8 +39,6 @@ public class GameActivity extends Activity {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-	//Remove title bar
-	this.requestWindowFeature(Window.FEATURE_NO_TITLE);
     setContentView(R.layout.activity_game);
 	TextView housesLeftTextView = (TextView) findViewById(R.id.housesLeft);
 	housesLeftTextView.setText(25 - houseCount + " houses left to place.");
@@ -131,10 +129,12 @@ public class GameActivity extends Activity {
 			  if(attackLocations[i] >= 0 && attackLocations[i] < 64)
 			  {
 				  ToggleButton thisHouse = (ToggleButton) grid.getChildAt(attackLocations[i]);
-				  if(thisHouse.getBackground().equals(R.drawable.house))
-					  thisHouse.setBackgroundResource(R.drawable.opponent_house);
+				  if(opponentGrid[attackLocations[i]] == 1)
+					  thisHouse.setBackgroundResource(R.drawable.target_hit_location);
+				  else if(opponentGrid[attackLocations[i]] == 0)
+					  thisHouse.setBackgroundResource(R.drawable.target_miss_location);
 				  else
-					  thisHouse.setBackgroundResource(R.drawable.attack_location); // change to attack location. maybe an X
+					  thisHouse.setBackgroundResource(R.drawable.attack_location);
 			  }
 		  }
 	  }
@@ -185,12 +185,12 @@ public class GameActivity extends Activity {
 		  {
 			  attackLocations[attackCount] = attackLocation;
 			  attackCount++;
-			  if(attackLocation % 8 != 7 && attackLocation / 8 != 0)
+			  if(attackLocation % 8 != 0 && attackLocation / 8 != 0)
 			  {
 				  attackLocations[attackCount] = attackLocation + 7;
 				  attackCount++;
 			  }
-			  if(attackLocation % 8 != 0 && attackLocation / 8 != 7)
+			  if(attackLocation % 8 != 7 && attackLocation / 8 != 7)
 			  {
 				  attackLocations[attackCount] = attackLocation - 7;
 				  attackCount++;
@@ -217,11 +217,6 @@ public class GameActivity extends Activity {
 		  {
 			  attackLocations[attackCount] = attackLocation;
 			  attackCount++;
-			  if(attackLocation % 8 != 0)
-			  {
-				  attackLocations[attackCount] = attackLocation - 1;
-				  attackCount++;
-			  }
 			  if(attackLocation / 8 != 7)
 			  {
 				  attackLocations[attackCount] = attackLocation + 8;
@@ -274,6 +269,9 @@ public class GameActivity extends Activity {
 			  {
 				  attackLocations[attackCount] = attackLocation - 1;
 				  attackCount++;
+			  }
+			  if(attackLocation % 8 >= 1)
+			  {
 				  attackLocations[attackCount] = attackLocation - 2;
 				  attackCount++;
 			  }
@@ -281,6 +279,9 @@ public class GameActivity extends Activity {
 			  {
 				  attackLocations[attackCount] = attackLocation + 1;
 				  attackCount++;
+			  }
+			  if(attackLocation % 8 <= 6)
+			  {
 				  attackLocations[attackCount] = attackLocation + 2;
 				  attackCount++;
 			  }
@@ -289,7 +290,7 @@ public class GameActivity extends Activity {
 				  attackLocations[attackCount] = attackLocation - 8;
 				  attackCount++;
 			  }
-			  if(attackLocation / 8 != 1)
+			  if(attackLocation / 8 >= 1)
 			  {
 				  attackLocations[attackCount] = attackLocation - 16;
 				  attackCount++;
@@ -299,7 +300,7 @@ public class GameActivity extends Activity {
 				  attackLocations[attackCount] = attackLocation + 8;
 				  attackCount++;
 			  }
-			  if(attackLocation / 8 != 6)
+			  if(attackLocation / 8 <= 6)
 			  {
 			  attackLocations[attackCount] = attackLocation + 16;
 			  attackCount++;
@@ -389,7 +390,17 @@ public class GameActivity extends Activity {
 	  {
 		  if(attackLocations[i] >= 0 && attackLocations[i] < 64)
 		  {
-			  if(!pastAttacks[attackLocations[i]])
+			  if(opponentGrid[attackLocations[i]] == 0)
+			  {
+				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(false);
+				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.attack_miss);
+			  }
+			  else if(opponentGrid[attackLocations[i]] == 1)
+			  {
+				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(false);
+				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.attack_hit);
+			  }
+			  else
 			  {
 				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setChecked(false);
 				  ((ToggleButton) grid.getChildAt(attackLocations[i])).setBackgroundResource(R.drawable.shape);
@@ -432,6 +443,7 @@ public class GameActivity extends Activity {
   
   public void onHit(int x, int y)
   {
+	  MediaPlayer sound = MediaPlayer.create(this, R.raw.boom);
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
@@ -441,6 +453,7 @@ public class GameActivity extends Activity {
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
+	  sound.start();
 	  
 	  opponentGrid[hitIndex] = 1;
   }
@@ -484,6 +497,7 @@ public class GameActivity extends Activity {
   
   public void onSelfHit(int x, int y)
   {
+	  MediaPlayer sound = MediaPlayer.create(this, R.raw.boom);
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
@@ -494,6 +508,7 @@ public class GameActivity extends Activity {
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
+	  sound.start();
   }
   
   public void onConfirmAttackButtonClick(View view)
@@ -623,6 +638,7 @@ public class GameActivity extends Activity {
   public void onConfirmButtonClick(View view)
   {
 	  findViewById(R.id.housesLeft).setVisibility(View.INVISIBLE);
+	  findViewById(R.id.messageText).setVisibility(View.INVISIBLE);
 	  mapAsString = "";
 	  if(checkNumberOfHouses() == MAX_HOUSES)
 	  {
@@ -866,7 +882,7 @@ public class GameActivity extends Activity {
 				attackType = 3;
 			break;
 		}
-		case (R.id.tetrisAttackRadioButton):
+		case (R.id.horizontalAttackRadioButton):
 		{
 			if (checked)
 				attackType = 4;
