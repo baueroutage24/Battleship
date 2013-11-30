@@ -46,6 +46,7 @@ public class GameActivity extends Activity {
 	housesLeftTextView.setText(25 - houseCount + " houses left to place.");
 	Arrays.fill(pastAttacks, false);
 	Arrays.fill(opponentGrid, -1);
+	disableBoard();
     Communications.setActivity(this);
     // Send ready
   }
@@ -116,10 +117,13 @@ public class GameActivity extends Activity {
   
   public void onOpponentHouseToggleButtonClick(View view)
   {
+	  boolean isChecked = false;
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
 	  ToggleButton opponentHouse = (ToggleButton) view;
-	  removePreviousBasicAttackSelection();
 	  if(opponentHouse.isChecked())
+		  isChecked = true;
+	  removePreviousBasicAttackSelection();
+	  if(isChecked)
 	  {
 		  addAttackLocations(opponentHouse);
 		  for(int i = 0; i < attackCount; i++)
@@ -825,6 +829,7 @@ public class GameActivity extends Activity {
 		{
 			((Button) attackButtonGrid.getChildAt(i)).setClickable(true);
 		}
+		
 		RadioGroup attackGrid = (RadioGroup) findViewById(R.id.attackSelectionGrid);
 		for(int i = 0; i < attackGrid.getChildCount(); i++)
 		{
