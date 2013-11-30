@@ -31,6 +31,7 @@ public class GameActivity extends Activity {
 	int[] attackLocations = { -1, -1, -1, -1, -1, -1, -1, -1, -1};
 	boolean[] pastAttacks = new boolean[64];
 	int[] opponentGrid = new int[64];
+	boolean[] playerGrid = new boolean[64];
 	int opponentHousesLeft = 25;
 	int[] attacksLeft = { 3, 3, 3, 3, 2, 1, 1};
 	String mapAsString = "";
@@ -498,7 +499,10 @@ public class GameActivity extends Activity {
 	  
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
-	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
+	  if(!playerGrid[hitIndex])
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
+	  else
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
   }
   
   public void onSelfHit(int x, int y)
@@ -515,7 +519,10 @@ public class GameActivity extends Activity {
 	  
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
-	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
+	  if(!playerGrid[hitIndex])
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
+	  else
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
 	  sound.start();
   }
   
@@ -675,11 +682,13 @@ public class GameActivity extends Activity {
 			  {
 				  mapAsString += 'B';
 				  house.setClickable(false);
+				  playerGrid[i] = true;
 			  }
 			  else
 			  {
 				  mapAsString += 'A';
 				  house.setClickable(false);
+				  playerGrid[i] = false;
 			  }
 		  }
 		  findViewById(R.id.resetButton).setClickable(false);
