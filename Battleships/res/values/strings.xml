@@ -31,9 +31,9 @@
     <string name="app_logo">boom logo</string>
     <string name="title_activity_game_play">GamePlayActivity</string>
     <string name="title_activity_stats">Stats</string>
-    <string name="destruction">Total Houses Destroyed</string>
+    <string name="destruction">Houses Destroyed</string>
     <string name="player1">ME</string>
-    <string name="player2">YOU</string>
+    <string name="player2">OPPONENT</string>
     <string name="gamestat">Battle Results</string>
     <string name="accuracy">Accuracy Rate</string>
     <string name="gametime">Battle Duration: </string>

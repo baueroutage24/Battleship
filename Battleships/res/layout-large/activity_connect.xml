@@ -24,18 +24,10 @@
 
     <LinearLayout
         android:id="@+id/ipLayout"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="30dp" >
-
-        <ImageView
-            android:id="@+id/icon1"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="15dp"
-            android:contentDescription="@string/boomicon"
-            android:src="@drawable/boomicon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +62,7 @@
 
         <EditText
             android:id="@+id/ip4"
-            android:layout_width="200sp"
+            android:layout_width="150sp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:inputType="number"
@@ -83,19 +75,11 @@
 
     <LinearLayout
         android:id="@+id/portLayout"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ipLayout"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="15dp" >
-
-        <ImageView
-            android:id="@+id/icon2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="5dp"
-            android:contentDescription="@string/boomicon"
-            android:src="@drawable/boomicon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -117,19 +101,11 @@
 
     <LinearLayout
         android:id="@+id/playerNameLayout"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/portLayout"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="100dp"
         android:layout_marginTop="15dp" >
-
-        <ImageView
-            android:id="@+id/icon3"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="15dp"
-            android:contentDescription="@string/boomicon"
-            android:src="@drawable/boomicon" />
 
         <TextView
             android:id="@+id/playerNameLabel"
@@ -142,7 +118,7 @@
 
         <EditText
             android:id="@+id/playerName"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10"
@@ -154,60 +130,31 @@
         android:id="@+id/buttons"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:layout_below="@id/playerNameLayout"
-        android:layout_marginTop="50dp" >
-
-        <ImageView
-            android:id="@+id/icon_connect"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignBottom="@+id/connectButton"
-            android:layout_alignTop="@+id/connectButton"
-            android:layout_marginTop="15dp"
-            android:layout_toLeftOf="@+id/connectButton"
-            android:contentDescription="@string/boomicon"
-            android:src="@drawable/boomicon"
-            android:visibility="invisible" />
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="20dp" >
 
         <Button
             android:id="@+id/connectButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toLeftOf="@+id/center"
-            android:background="#FFFFFF"
-            android:onClick="openSocket"
-            android:text="@string/connect"
-            android:textSize="40sp" />
-
-        <ImageView
-            android:id="@+id/center"
-            android:layout_width="100dp"
-            android:layout_height="5dp"
-            android:layout_centerHorizontal="true"
-            android:background="#FFFFFF"
-            android:contentDescription="@id/center" />
-
-        <ImageView
-            android:id="@+id/icon_disconnect"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignBottom="@+id/connectButton"
-            android:layout_alignTop="@+id/disconnectButton"
-            android:layout_toRightOf="@+id/center"
-            android:contentDescription="@string/boomicon"
-            android:src="@drawable/boomicon"
-            android:visibility="invisible" />
+            android:layout_width="220dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/connect"
+            android:onClick="openSocket" />
 
         <Button
             android:id="@+id/disconnectButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="70dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/connectButton"
             android:layout_gravity="bottom"
-            android:layout_toRightOf="@+id/icon_disconnect"
-            android:background="#FFFFFF"
-            android:onClick="onDisconnectButtonClick"
-            android:text="@string/disconnect"
-            android:textSize="40sp" />
+            android:layout_marginTop="25dp"
+            android:background="@drawable/disconnect"
+            android:onClick="onDisconnectButtonClick" />
     </RelativeLayout>
 
     <TextView
@@ -217,5 +164,63 @@
         android:layout_below="@id/buttons"
         android:text="@string/connectMessage"
         android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentBottom="true" >
+
+        <ImageView
+            android:id="@+id/theme1"
+            android:layout_width="400dp"
+            android:layout_height="220dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/japan" />
+
+        <ImageView
+            android:id="@+id/theme1flag"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="2dp"
+            android:src="@drawable/japanflag" />
+
+        <ImageView
+            android:id="@+id/theme2"
+            android:layout_width="400dp"
+            android:layout_height="220dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/theme1flag"
+            android:src="@drawable/russia" />
+
+        <ImageView
+            android:id="@+id/theme2flag"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/theme1"
+            android:padding="2dp"
+            android:src="@drawable/russiaflag" />
+
+        <ImageView
+            android:id="@+id/theme3"
+            android:layout_width="400dp"
+            android:layout_height="220dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/theme1flag"
+            android:src="@drawable/canada" />
+
+        <ImageView
+            android:id="@+id/theme3flag"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/theme1"
+            android:padding="2dp"
+            android:src="@drawable/canadaflag" />
+    </RelativeLayout>
 
 </RelativeLayout>
