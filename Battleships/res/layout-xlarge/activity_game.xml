@@ -1866,7 +1866,7 @@
             android:id="@+id/xAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_x_65"
+            android:background="@drawable/attack_x_new"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/plusAttackRadioButton"
