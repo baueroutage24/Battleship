@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -34,6 +35,12 @@ public class GameActivity extends Activity {
 	final int GRID_WIDTH = 8;
 	final int GRID_HEIGHT = 8;
 	final int MAX_HOUSES = 25;
+	
+	int yourHits = 0;
+	int yourMisses = 0;
+	int opHits = 0;
+	int opMisses = 0;
+	int numTurns = 0;
 	
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -455,6 +462,8 @@ public class GameActivity extends Activity {
 	  
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
+	  yourHits++;
+	  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
 	  if(opponentGrid[hitIndex] == 1)
 	  {
@@ -476,6 +485,8 @@ public class GameActivity extends Activity {
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
+	  opMisses++;
+	  
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.mainGrid);
@@ -490,6 +501,8 @@ public class GameActivity extends Activity {
 	  MediaPlayer sound = MediaPlayer.create(this, R.raw.boom);
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
+	  
+	  opHits++;
 	  
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
@@ -506,6 +519,8 @@ public class GameActivity extends Activity {
 	  placeAttack();
 	  String attackMessage = makeAttackMessage();
 	  sendMessage(attackMessage);
+	  
+	  numTurns++;
   }
   
   public void placeAttack()
@@ -516,6 +531,32 @@ public class GameActivity extends Activity {
 		  ((ToggleButton) grid.getChildAt(attackLocations[i])).setClickable(false);
 		  pastAttacks[attackLocations[i]] = true;
 	  }
+  }
+  
+  public void GameOver(boolean isWinner)
+  {
+	  Intent intent = new Intent(this, Stats.class);
+	  
+	  Bundle extras = new Bundle();
+	  
+	  extras.putInt("YOUR_HITS", yourHits);
+	  extras.putInt("YOUR_MISSES", yourMisses);
+	  extras.putInt("OP_HITS", opHits);
+	  extras.putInt("OP_MISSES", opMisses);
+	  extras.putInt("NUM_TURNS", numTurns);
+	  
+	  if(isWinner)
+	  {
+		  extras.putInt("WINNER", 1);
+	  }
+	  else
+	  {
+		  extras.putInt("WINNER", 0);
+	  }
+	  
+	  intent.putExtras(extras);
+	  
+	  startActivity(intent);
   }
   
   public String makeAttackMessage()

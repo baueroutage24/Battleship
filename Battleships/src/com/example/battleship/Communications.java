@@ -282,6 +282,39 @@ public class Communications{
 		}
 	}
 	
+	public void handleGameOver(byte winner)
+	{
+		
+		final boolean isWinner;
+
+		if(winner == communicator.communicationId)
+		{
+			isWinner = true;
+		}
+		else
+		{
+			isWinner = false;
+		}
+	
+		communicator.currentActivity.runOnUiThread
+		(
+				new Runnable()
+				{
+					public void run()
+					{
+						try
+						{
+							((GameActivity)communicator.currentActivity).GameOver(isWinner);
+						}
+						catch(Exception ex)
+						{
+							
+						}
+					}
+				}
+		);
+	}
+	
 	public void handleTurnOver(byte[] eventData)
 	{
 		if(eventData[0] == communicator.communicationId)
@@ -383,6 +416,8 @@ public class Communications{
 			}
 			else if((char)buf[i] == Events.GAME_OVER.getCode())
 			{
+				i++;
+				handleGameOver(buf[i]);
 				i++;
 			}
 			else if((char)buf[i] == Events.PLAYER_READY.getCode())
