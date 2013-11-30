@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -30,6 +29,7 @@ public class GameActivity extends Activity {
 	int[] attackLocations = { -1, -1, -1, -1, -1, -1, -1, -1, -1};
 	boolean[] pastAttacks = new boolean[64];
 	int[] opponentGrid = new int[64];
+	int opponentHousesLeft = 25;
 	String mapAsString = "";
 	final int GRID_WIDTH = 8;
 	final int GRID_HEIGHT = 8;
@@ -46,7 +46,6 @@ public class GameActivity extends Activity {
 	Arrays.fill(opponentGrid, -1);
 	disableBoard();
     Communications.setActivity(this);
-    // Send ready
   }
   
   public void onGridToggleButtonClick(View view)
@@ -140,17 +139,12 @@ public class GameActivity extends Activity {
 	  }
 	  else
 	  {
-		  //--;
-		  if(opponentHouse.getBackground().equals(R.drawable.opponent_house))
-			  opponentHouse.setBackgroundResource(R.drawable.house);
-		  else if(!pastAttacks[getIndexInParent(opponentHouse)])
-		  {
-			  opponentHouse.setBackgroundResource(R.drawable.shape);  
-		  }
+		  if(opponentGrid[getIndexInParent(opponentHouse)] == 0)
+			  opponentHouse.setBackgroundResource(R.drawable.attack_miss);
+		  else if(opponentGrid[getIndexInParent(opponentHouse)] == 1)
+			  opponentHouse.setBackgroundResource(R.drawable.attack_hit);
 		  else
-		  {
-			  
-		  }
+			  opponentHouse.setBackgroundResource(R.drawable.shape);
 	  }
   }
   
@@ -311,12 +305,6 @@ public class GameActivity extends Activity {
 		  {
 			  attackLocations[attackCount] = attackLocation;
 			  attackCount++;
-			  break;
-		  }
-		  case 8:
-		  {
-			  attackLocations[attackCount] = attackLocation;
-			  attackCount++;
 			  if(attackLocation % 8 != 0)
 			  {
 				  attackLocations[attackCount] = attackLocation - 1;
@@ -456,6 +444,8 @@ public class GameActivity extends Activity {
 	  sound.start();
 	  
 	  opponentGrid[hitIndex] = 1;
+	  opponentHousesLeft--;
+	  ((TextView) findViewById(R.id.opponentHousesLeft)).setText("Opponent has " + opponentHousesLeft + " left.");
   }
   
   public void onMiss(int x, int y)
@@ -817,11 +807,8 @@ public class GameActivity extends Activity {
 		{
 			((ToggleButton) grid.getChildAt(i)).setClickable(false);
 		}
-		RelativeLayout attackButtonGrid = (RelativeLayout) findViewById(R.id.attackButtonGrid);
-		for(int i = 0; i < attackButtonGrid.getChildCount(); i++)
-		{
-			((Button) attackButtonGrid.getChildAt(i)).setClickable(false);
-		}
+		((Button) findViewById(R.id.attackConfirmButton)).setEnabled(false);
+		((Button) findViewById(R.id.attackResetButton)).setEnabled(false);
 
 		RadioGroup attackGrid = (RadioGroup) findViewById(R.id.attackSelectionGrid);
 		for(int i = 0; i < attackGrid.getChildCount(); i++)
@@ -840,11 +827,9 @@ public class GameActivity extends Activity {
 				((ToggleButton) grid.getChildAt(i)).setClickable(true);
 			}
 		}
-		RelativeLayout attackButtonGrid = (RelativeLayout) findViewById(R.id.attackButtonGrid);
-		for(int i = 0; i < attackButtonGrid.getChildCount(); i++)
-		{
-			((Button) attackButtonGrid.getChildAt(i)).setClickable(true);
-		}
+		
+		((Button) findViewById(R.id.attackConfirmButton)).setEnabled(true);
+		((Button) findViewById(R.id.attackResetButton)).setEnabled(true);
 		
 		RadioGroup attackGrid = (RadioGroup) findViewById(R.id.attackSelectionGrid);
 		for(int i = 0; i < attackGrid.getChildCount(); i++)
@@ -900,16 +885,10 @@ public class GameActivity extends Activity {
 				attackType = 6;
 			break;
 		}
-		case (R.id.chooseFourAttackRadioButton7):
-		{
-			if (checked)
-				attackType = 7;
-			break;
-		}
 		case (R.id.squareAttackRadioButton):
 		{
 			if (checked)
-				attackType = 8;
+				attackType = 7;
 			break;
 		}
 		default:

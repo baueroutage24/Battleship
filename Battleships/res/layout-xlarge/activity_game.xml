@@ -1835,56 +1835,50 @@
             android:id="@+id/basicAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_single_65dp"
+            android:background="@drawable/attack_single"
             android:onClick="onAttackSelection"
             android:checked="true" />
         <RadioButton
             android:id="@+id/verticalAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_vertical_65dp"
+            android:background="@drawable/attack_vertical"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/diagonalAttackBLTRRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_diagonal_bltr_65dp"
+            android:background="@drawable/attack_diagonal_bltr"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/diagonalAttackTLBR"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_diagonal_tlbr_65dp"
+            android:background="@drawable/attack_diagonal_tlbr"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/horizontalAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_horizontal_65dp"
+            android:background="@drawable/attack_horizontal"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/xAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_x_65dp"
+            android:background="@drawable/attack_x"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/plusAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_plus_65dp"
-            android:onClick="onAttackSelection" />
-        <RadioButton
-            android:id="@+id/chooseFourAttackRadioButton7"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:background="@drawable/attack_choose_four_65dp"
+            android:background="@drawable/attack_plus"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/squareAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_square_65dp"
+            android:background="@drawable/attack_square"
             android:onClick="onAttackSelection" />
     </RadioGroup>
     
@@ -1898,11 +1892,16 @@
         android:gravity="right"
         android:orientation="vertical"
         android:stretchMode="columnWidth" >
+        
+        <TextView android:id="@+id/opponentHousesLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/attackResetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/opponentHousesLeft"
             android:onClick="onResetAttackButtonClick"
             android:text="Reset attack" />
 

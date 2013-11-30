@@ -1831,11 +1831,16 @@
         android:gravity="right"
         android:orientation="vertical"
         android:stretchMode="columnWidth" >
+	    
+        <TextView android:id="@+id/opponentHousesLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/attackResetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/opponentHousesLeft"
             android:onClick="onResetAttackButtonClick"
             android:text="Reset attack" />
 
