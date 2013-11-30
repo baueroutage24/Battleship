@@ -21,18 +21,18 @@ public class Stats extends Activity {
 		Integer p1_numdestroyed = myExtras.getInt("YOUR_HITS");
 		Integer p2_numdestroyed = myExtras.getInt("OP_HITS");;
 		
-		Integer p1_accuracy = (int)((double)myExtras.getInt("YOUR_HITS")/((double)myExtras.getInt("YOUR_HITS") + (double)myExtras.getInt("YOUR_MISSES")))*100;
-		Integer p2_accuracy = (int)((double)myExtras.getInt("OP_HITS")/((double)myExtras.getInt("OP_HITS") + (double)myExtras.getInt("OP_MISSES")))*100;
+		Integer p1_accuracy = (int)(((double)myExtras.getInt("YOUR_HITS")/((double)myExtras.getInt("YOUR_HITS") + (double)myExtras.getInt("YOUR_MISSES")))*100);
+		Integer p2_accuracy = (int)(((double)myExtras.getInt("OP_HITS")/((double)myExtras.getInt("OP_HITS") + (double)myExtras.getInt("OP_MISSES")))*100);
 		
 		if(winner == 1)
 		{
 			((TextView)findViewById(R.id.player1_state)).setText("WINNER");
-			((TextView)findViewById(R.id.player1_state)).setText("LOSER");
+			((TextView)findViewById(R.id.player2_state)).setText("LOSER");
 		}
 		else
 		{
 			((TextView)findViewById(R.id.player1_state)).setText("LOSER");
-			((TextView)findViewById(R.id.player1_state)).setText("WINNER");
+			((TextView)findViewById(R.id.player2_state)).setText("WINNER");
 		}
 		
 		Integer num_turns = myExtras.getInt("NUM_TURNS");

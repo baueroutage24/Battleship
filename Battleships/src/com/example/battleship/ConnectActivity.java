@@ -68,9 +68,9 @@ public class ConnectActivity extends Activity {
 		text_ip = (EditText) findViewById(R.id.ip4);
 		addr += "." + text_ip.getText().toString();*/
 		
-		addr += ((TextView) findViewById(R.id.ip1)).getText().toString();
-		addr += "." + ((TextView) findViewById(R.id.ip2)).getText().toString();
-		addr += "." + ((TextView) findViewById(R.id.ip3)).getText().toString();
+		addr += ((EditText) findViewById(R.id.ip1)).getText().toString();
+		addr += "." + ((EditText) findViewById(R.id.ip2)).getText().toString();
+		addr += "." + ((EditText) findViewById(R.id.ip3)).getText().toString();
 		addr += "." + ((EditText) findViewById(R.id.ip4)).getText().toString();
 		return addr;
 	}

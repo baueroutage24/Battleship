@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ public class GameActivity extends Activity {
 	boolean[] pastAttacks = new boolean[64];
 	int[] opponentGrid = new int[64];
 	int opponentHousesLeft = 25;
+	int[] attacksLeft = { 3, 3, 3, 3, 2, 1, 1};
 	String mapAsString = "";
 	final int GRID_WIDTH = 8;
 	final int GRID_HEIGHT = 8;
@@ -51,6 +53,7 @@ public class GameActivity extends Activity {
 	housesLeftTextView.setText(25 - houseCount + " houses left to place.");
 	Arrays.fill(pastAttacks, false);
 	Arrays.fill(opponentGrid, -1);
+	populateAttackCountTextViews();
 	disableBoard();
     Communications.setActivity(this);
   }
@@ -271,7 +274,7 @@ public class GameActivity extends Activity {
 				  attackLocations[attackCount] = attackLocation - 1;
 				  attackCount++;
 			  }
-			  if(attackLocation % 8 >= 1)
+			  if(attackLocation % 8 > 1)
 			  {
 				  attackLocations[attackCount] = attackLocation - 2;
 				  attackCount++;
@@ -281,7 +284,7 @@ public class GameActivity extends Activity {
 				  attackLocations[attackCount] = attackLocation + 1;
 				  attackCount++;
 			  }
-			  if(attackLocation % 8 <= 6)
+			  if(attackLocation % 8 < 6)
 			  {
 				  attackLocations[attackCount] = attackLocation + 2;
 				  attackCount++;
@@ -442,6 +445,8 @@ public class GameActivity extends Activity {
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
+	  yourHits++;
+	  
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
@@ -460,10 +465,10 @@ public class GameActivity extends Activity {
 	  int shiftedX = x - 'A';
 	  int shiftedY = y - 'A';
 	  
+	  yourMisses++;
+	  
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
-	  yourHits++;
-	  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
 	  if(opponentGrid[hitIndex] == 1)
 	  {
@@ -516,11 +521,24 @@ public class GameActivity extends Activity {
   
   public void onConfirmAttackButtonClick(View view)
   {
+	  RadioGroup attackRG = (RadioGroup) findViewById(R.id.attackSelectionGrid);
 	  placeAttack();
 	  String attackMessage = makeAttackMessage();
 	  sendMessage(attackMessage);
-	  
-	  numTurns++;
+	  if(attackType != 0)
+	  {
+		  attacksLeft[attackType - 1]--;
+	  }
+	  for(int i = 0; i < 7; i++)
+	  {
+		  if(attacksLeft[i] <= 0)
+		  {
+			  ((RadioButton) attackRG.getChildAt(i + 1)).setEnabled(false);
+			  ((RadioButton) attackRG.getChildAt(0)).setChecked(true);
+			  attackType = 0;
+		  }
+	  }
+	  populateAttackCountTextViews();
   }
   
   public void placeAttack()
@@ -531,32 +549,6 @@ public class GameActivity extends Activity {
 		  ((ToggleButton) grid.getChildAt(attackLocations[i])).setClickable(false);
 		  pastAttacks[attackLocations[i]] = true;
 	  }
-  }
-  
-  public void GameOver(boolean isWinner)
-  {
-	  Intent intent = new Intent(this, Stats.class);
-	  
-	  Bundle extras = new Bundle();
-	  
-	  extras.putInt("YOUR_HITS", yourHits);
-	  extras.putInt("YOUR_MISSES", yourMisses);
-	  extras.putInt("OP_HITS", opHits);
-	  extras.putInt("OP_MISSES", opMisses);
-	  extras.putInt("NUM_TURNS", numTurns);
-	  
-	  if(isWinner)
-	  {
-		  extras.putInt("WINNER", 1);
-	  }
-	  else
-	  {
-		  extras.putInt("WINNER", 0);
-	  }
-	  
-	  intent.putExtras(extras);
-	  
-	  startActivity(intent);
   }
   
   public String makeAttackMessage()
@@ -875,6 +867,11 @@ public class GameActivity extends Activity {
 		RadioGroup attackGrid = (RadioGroup) findViewById(R.id.attackSelectionGrid);
 		for(int i = 0; i < attackGrid.getChildCount(); i++)
 		{
+			if(i > 0)
+			{
+				if(attacksLeft[i - 1] > 1)
+					attackGrid.getChildAt(i).setClickable(true);
+			}
 			attackGrid.getChildAt(i).setClickable(true);
 		}
 	}
@@ -887,7 +884,9 @@ public class GameActivity extends Activity {
 		case (R.id.basicAttackRadioButton):
 		{
 			if (checked)
+			{
 				attackType = 0;
+			}
 			break;
 		}
 		case (R.id.verticalAttackRadioButton):
@@ -936,6 +935,44 @@ public class GameActivity extends Activity {
 			attackType = 0;
 		}
 	}
+	
+	void populateAttackCountTextViews()
+	{
+		LinearLayout attackCountLayout = (LinearLayout) findViewById(R.id.attackCount);
+		for(int i = 0; i < attackCountLayout.getChildCount(); i++)
+		{
+			if(i > 0)
+			{
+				((TextView) attackCountLayout.getChildAt(i)).setText("" + attacksLeft[i-1]);
+			}
+		}
+	}
+	
+	public void GameOver(boolean isWinner)
+	  {
+		  Intent intent = new Intent(this, Stats.class);
+		  
+		  Bundle extras = new Bundle();
+		  
+		  extras.putInt("YOUR_HITS", yourHits);
+		  extras.putInt("YOUR_MISSES", yourMisses);
+		  extras.putInt("OP_HITS", opHits);
+		  extras.putInt("OP_MISSES", opMisses);
+		  extras.putInt("NUM_TURNS", numTurns);
+		  
+		  if(isWinner)
+		  {
+			  extras.putInt("WINNER", 1);
+		  }
+		  else
+		  {
+			  extras.putInt("WINNER", 0);
+		  }
+		  
+		  intent.putExtras(extras);
+		  
+		  startActivity(intent);
+	  }
 	
   /*public void onRotateButtonClick(View view)
   {

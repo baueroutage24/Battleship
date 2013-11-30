@@ -1842,51 +1842,100 @@
             android:id="@+id/verticalAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_vertical"
+            android:background="@drawable/attack_vertical_65"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/diagonalAttackBLTRRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_diagonal_bltr"
+            android:background="@drawable/attack_diagonal_bltr_65"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/diagonalAttackTLBR"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_diagonal_tlbr"
+            android:background="@drawable/attack_diagonal_tlbr_65"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/horizontalAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_horizontal"
+            android:background="@drawable/attack_horizontal_65"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/xAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_x"
+            android:background="@drawable/attack_x_65"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/plusAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_plus"
+            android:background="@drawable/attack_plus_large_65"
             android:onClick="onAttackSelection" />
         <RadioButton
             android:id="@+id/squareAttackRadioButton"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:background="@drawable/attack_square"
+            android:background="@drawable/attack_square_65"
             android:onClick="onAttackSelection" />
     </RadioGroup>
+    
+    <LinearLayout 
+        android:id="@+id/attackCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/attackSelectionGrid"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true">
+        <TextView
+            android:id="@+id/attackCount0"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount1"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount2"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount3"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount4"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount5"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount6"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+        <TextView
+            android:id="@+id/attackCount7"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"/>
+    </LinearLayout>
     
     <RelativeLayout
         android:id="@+id/attackButtonGrid"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@id/attackSelectionGrid"
+        android:layout_below="@id/attackCount"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:gravity="right"
