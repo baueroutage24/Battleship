@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Battleship</string>
+    <string name="app_name">la BOOM</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_connect">ConnectActivity</string>
     <string name="label_ip">IP:</string>
     <string name="playsong">Play Song</string>
@@ -19,6 +18,56 @@
     <string name="play">Play</string>
     <string name="stop">Stop</string>
     <string name="refresh_socket">Show Sock.</string>
-    <string name="title_activity_game">GameActivity</string>
+    <string name="title_activity_game">la BOOM</string>
+
+    <!-- Zoe -->
+    <string name="edit_message">Enter a Message</string>
+    <string name="button_send">Send</string>
+    <string name="button_start">START</string>
+    <string name="button_stats">STATS</string>
+    <string name="button_main">MAIN</string>
+    <string name="button_newgame">New Game</string>
+    <string name="boomicon">boom icon</string>
+    <string name="app_logo">boom logo</string>
+    <string name="title_activity_game_play">GamePlayActivity</string>
+    <string name="title_activity_stats">Stats</string>
+    <string name="destruction">Total Houses Destroyed</string>
+    <string name="player1">ME</string>
+    <string name="player2">YOU</string>
+    <string name="gamestat">Battle Results</string>
+    <string name="accuracy">Accuracy Rate</string>
+    <string name="gametime">Battle Duration: </string>
+    <string name="results">Battle Results</string>
+    <string name="winner">WINNER</string>
+    <string name="vs">vs.</string>
+    <string name="house1">House1</string>
+
+    <!-- royce -->
+
+
+    <string name="title_activity_join">JoinActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="rotate_icon">click to rotate</string>
+    <string name="delete_icon">click to delete</string>
+    <string name="house2">insert house2</string>
+    <string name="house3">insert house3</string>
+    <string name="title_activity_store">StoreActivity</string>
+    <string name="reset">Reset</string>
+    <string name="purchase">Purchase</string>
+    <string name="randomstring">with optional smple fmrating cn e stored and restrives as reoucrse you add fomrating to yout dsfjtew dfahrr </string>
+    <string name="weapon1"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n--> <i>Fire 3 shots vertically   </i>                               \n\n<b>Cost</b>: $2000 "</font></string>
+    <string name="weapon2"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n--> <i>Fire 3 shots diagonally \n\t\tas shown      </i>                           \n\n<b>Cost</b>: $2000 "</font></string>
+    <string name="weapon3"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n--> <i>Fire 3 shots diagonally \n\t\tas shown     </i>                            \n\n<b>Cost</b>: $2000 "</font></string>
+    <string name="weapon4"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n--> <i>Fire 4 shots in the \n\t\tpattern as shown     </i>                                  \n\n<b>Cost</b>: $3000 "</font></string>
+    <string name="weapon5"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n--> <i>Fire 4 separate shots \n\t\t on the map    </i>                              \n\n<b>Cost</b>: $3000 "</font></string>
+    <string name="weapon6"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n--> <i>Fire 5 shots in the \n\t\tpattern as shown     </i>      \n\n<b>Cost</b>: $4000 "</font></string>
+    <string name="weapon7"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n-->  <i>Fire 9 shots in the \n\t\tpattern as shown     </i>        \n\n<b>Cost</b>: $8000 "</font></string>
+    <string name="weapon8"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n-->  <i>Fire 9 shots in a \n\t\t3x3 grid    </i>            \n\n<b>Cost</b>: $8000 "</font></string>
+    <string name="weapon9"><font size="15"><b>"                    \n\n\n                                                               Description</b>: \n-->  <i>Reveals a 5x5 grid of  \n\t\t enemys map for 1 second     </i>                          \n<b>Cost</b>: $9000 "</font></string>
+    <string name="weapon10"><font size="15"><b>"                    \n\n\n                                                              Description</b>: \n-->  <i>Place an extra house on  \n\t\tyour map during setup     </i>                                  \n\n<b>Cost</b>: $2500 "</font></string>
+    <string name="weapon11"><font size="15"><b>"                    \n\n\n                                                              Description</b>: \n-->  <i>The theme of Canada    </i></font></string>
+    <string name="weapon12"><font size="15"><b>"                    \n\n\n                                                              Description</b>: \n-->  <i>The theme of U.S  </i></font></string>
+    <string name="weapon13"><font size="15"><b>"                    \n\n\n                                                              Description</b>: \n-->  <i>The theme of Russia      </i></font></string>
+    <string name="weapon14"><font size="15"><b>"                    \n\n\n  </b></font></string>
 
 </resources>

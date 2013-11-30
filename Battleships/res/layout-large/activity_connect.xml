@@ -4,24 +4,23 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <RelativeLayout 
+    <RelativeLayout
         android:id="@+id/connectionOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/transparent_overlay"
         android:visibility="invisible" >
-        
+
         <TextView
             android:id="@+id/connectionOverlayText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:text="Overlay"
             android:textAlignment="center"
-            android:textSize="10pt"
-            android:text="Overlay" />
-        
+            android:textSize="10pt" />
     </RelativeLayout>
-    
+
     <LinearLayout
         android:id="@+id/ipLayout"
         android:layout_width="fill_parent"
@@ -29,11 +28,11 @@
         android:orientation="horizontal" >
 
         <TextView
-            android:text="@string/label_ip"
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="@string/label_ip" />
 
         <TextView
             android:id="@+id/ip1"
@@ -63,9 +62,9 @@
             android:layout_weight="1"
             android:inputType="number"
             android:text="100" >
-            <requestFocus />
-       	</EditText>
 
+            <requestFocus />
+        </EditText>
     </LinearLayout>
 
     <LinearLayout
@@ -89,55 +88,56 @@
             android:layout_weight="4"
             android:inputType="number"
             android:text="50002" />
-
     </LinearLayout>
 
     <LinearLayout
-	    android:id="@+id/playerNameLayout"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_below="@id/portLayout" >
+        android:id="@+id/playerNameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/portLayout" >
 
-	    <TextView
-	        android:id="@+id/playerNameLabel"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:layout_marginLeft="15sp"
-	        android:text="Player name:" />
-	    
-	    <EditText
-	        android:id="@+id/playerName"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="center"
-	        android:ems="10" >
-	    </EditText>
+        <TextView
+            android:id="@+id/playerNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15sp"
+            android:text="Player name:" />
+
+        <EditText
+            android:id="@+id/playerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10" >
+        </EditText>
     </LinearLayout>
-    
+
     <Button
         android:id="@+id/connectButton"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/playerNameLayout"
+        android:layout_alignParentLeft="true"
         android:onClick="openSocket"
         android:text="@string/connect" />
-    
+
+    <Button
+        android:id="@+id/disconnectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/playerNameLayout"
+        android:layout_toRightOf="@+id/connectButton"
+        android:layout_gravity="bottom"
+        android:onClick="onDisconnectButtonClick"
+        android:text="@string/disconnect" />
+
     <TextView
         android:id="@+id/statusBox"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/connectButton"
-        android:visibility="invisible"
-        android:text="@string/connectMessage" />
-    
-    <Button
-        android:id="@+id/disconnectButton"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:layout_below="@id/statusBox"
-        android:onClick="onDisconnectButtonClick"
-        android:text="@string/disconnect" />
+        android:text="@string/connectMessage"
+        android:visibility="invisible" />
 
 </RelativeLayout>
