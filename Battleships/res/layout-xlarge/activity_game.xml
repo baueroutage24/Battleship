@@ -1913,12 +1913,6 @@
             android:onClick="onConfirmAttackButtonClick"
             android:layout_toRightOf="@id/attackResetButton"
             android:text="Confirm attack" />
-
-<!--         <TextView -->
-<!--             android:id="@+id/attackMessageText" -->
-<!--             android:layout_width="wrap_content" -->
-<!--             android:layout_height="wrap_content" -->
-<!--             android:layout_below="@id/attackResetButton" /> -->
     </RelativeLayout>
     
 </RelativeLayout>

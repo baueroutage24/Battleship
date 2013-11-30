@@ -89,7 +89,8 @@ public class ConnectActivity extends Activity {
 	
 	public void connected()
 	{
-		Communications.getCommunications().sendMessage("A");
+		String playerName = ((TextView) findViewById(R.id.playerName)).getText().toString();
+		Communications.getCommunications().sendMessage("A" + playerName);
 	}
 	
 	public void onDisconnectButtonClick(View view)
