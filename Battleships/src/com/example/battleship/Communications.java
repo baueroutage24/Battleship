@@ -48,7 +48,14 @@ public class Communications{
 			return;
 		}
 		
-		new SocketConnect().execute((Void) null);
+		try
+		{
+			new SocketConnect().execute((Void) null);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 	//  Called when the user wants to send a message
 	
@@ -80,7 +87,7 @@ public class Communications{
 		try {
 			s.getOutputStream().close();
 			s.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
