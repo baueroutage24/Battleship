@@ -26,13 +26,13 @@ public class Stats extends Activity {
 		
 		if(winner == 1)
 		{
-			((TextView)findViewById(R.id.player1_state)).setText("WINNER");
-			((TextView)findViewById(R.id.player2_state)).setText("LOSER");
+			((TextView)findViewById(R.id.player1_state)).setText("WON");
+			((TextView)findViewById(R.id.player2_state)).setText("LOST");
 		}
 		else
 		{
-			((TextView)findViewById(R.id.player1_state)).setText("LOSER");
-			((TextView)findViewById(R.id.player2_state)).setText("WINNER");
+			((TextView)findViewById(R.id.player1_state)).setText("LOST");
+			((TextView)findViewById(R.id.player2_state)).setText("WON");
 		}
 		
 		Integer num_turns = myExtras.getInt("NUM_TURNS");

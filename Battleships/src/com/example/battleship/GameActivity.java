@@ -539,6 +539,7 @@ public class GameActivity extends Activity {
 		  }
 	  }
 	  populateAttackCountTextViews();
+	  numTurns++;
   }
   
   public void placeAttack()
