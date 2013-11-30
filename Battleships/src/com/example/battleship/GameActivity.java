@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -28,6 +29,7 @@ public class GameActivity extends Activity {
 	int attackCount = 0;
 	int[] attackLocations = { -1, -1, -1, -1, -1, -1, -1, -1, -1};
 	boolean[] pastAttacks = new boolean[64];
+	int[] opponentGrid = new int[64];
 	String mapAsString = "";
 	final int GRID_WIDTH = 8;
 	final int GRID_HEIGHT = 8;
@@ -43,6 +45,7 @@ public class GameActivity extends Activity {
 	TextView housesLeftTextView = (TextView) findViewById(R.id.housesLeft);
 	housesLeftTextView.setText(25 - houseCount + " houses left to place.");
 	Arrays.fill(pastAttacks, false);
+	Arrays.fill(opponentGrid, -1);
     Communications.setActivity(this);
     // Send ready
   }
@@ -136,8 +139,14 @@ public class GameActivity extends Activity {
 		  //--;
 		  if(opponentHouse.getBackground().equals(R.drawable.opponent_house))
 			  opponentHouse.setBackgroundResource(R.drawable.house);
+		  else if(!pastAttacks[getIndexInParent(opponentHouse)])
+		  {
+			  opponentHouse.setBackgroundResource(R.drawable.shape);  
+		  }
 		  else
-			  opponentHouse.setBackgroundResource(R.drawable.shape);
+		  {
+			  
+		  }
 	  }
   }
   
@@ -425,10 +434,11 @@ public class GameActivity extends Activity {
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
 	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
+	  
+	  opponentGrid[hitIndex] = 1;
   }
   
   public void onMiss(int x, int y)
@@ -439,10 +449,19 @@ public class GameActivity extends Activity {
 	  int hitIndex = shiftedX + (8 * shiftedY);
 			  
 	  GridLayout grid = (GridLayout) findViewById(R.id.rightGrid);
-	  
-	  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
-	  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
-	  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
+	  if(opponentGrid[hitIndex] == 1)
+	  {
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_hit);
+	  }
+	  else
+	  {
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setChecked(false);
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setClickable(false);
+		  ((ToggleButton) grid.getChildAt(hitIndex)).setBackgroundResource(R.drawable.attack_miss);
+		  opponentGrid[hitIndex] = 0;
+	  }
   }
   
   public void onSelfMiss(int x, int y)
@@ -504,62 +523,62 @@ public class GameActivity extends Activity {
 		  row = attackLocation % GRID_HEIGHT;
 		  switch (row)
 		  {
-		  case 0:
-			  attackMessage += 'A';
-			  break;
-		  case 1:
-			  attackMessage += 'B';
-			  break;
-		  case 2:
-			  attackMessage += 'C';
-			  break;
-		  case 3:
-			  attackMessage += 'D';
-			  break;
-		  case 4:
-			  attackMessage += 'E';
-			  break;
-		  case 5:
-			  attackMessage += 'F';
-			  break;
-		  case 6:
-			  attackMessage += 'G';
-			  break;
-		  case 7:
-			  attackMessage += 'H';
-			  break;
-		  default:
-			  break;			 
+			  case 0:
+				  attackMessage += 'A';
+				  break;
+			  case 1:
+				  attackMessage += 'B';
+				  break;
+			  case 2:
+				  attackMessage += 'C';
+				  break;
+			  case 3:
+				  attackMessage += 'D';
+				  break;
+			  case 4:
+				  attackMessage += 'E';
+				  break;
+			  case 5:
+				  attackMessage += 'F';
+				  break;
+			  case 6:
+				  attackMessage += 'G';
+				  break;
+			  case 7:
+				  attackMessage += 'H';
+				  break;
+			  default:
+				  break;			 
 		  }
 		  
 		  switch (column)
 		  {
-		  case 0:
-			  attackMessage += 'A';
-			  break;
-		  case 1:
-			  attackMessage += 'B';
-			  break;
-		  case 2:
-			  attackMessage += 'C';
-			  break;
-		  case 3:
-			  attackMessage += 'D';
-			  break;
-		  case 4:
-			  attackMessage += 'E';
-			  break;
-		  case 5:
-			  attackMessage += 'F';
-			  break;
-		  case 6:
-			  attackMessage += 'G';
-			  break;
-		  case 7:
-			  attackMessage += 'H';
-			  break;
-		  default:
-			  break;			 
+			  case 0:
+				  attackMessage += 'A';
+				  break;
+			  case 1:
+				  attackMessage += 'B';
+				  break;
+			  case 2:
+				  attackMessage += 'C';
+				  break;
+			  case 3:
+				  attackMessage += 'D';
+				  break;
+			  case 4:
+				  attackMessage += 'E';
+				  break;
+			  case 5:
+				  attackMessage += 'F';
+				  break;
+			  case 6:
+				  attackMessage += 'G';
+				  break;
+			  case 7:
+				  attackMessage += 'H';
+				  break;
+			  default:
+				  break;			 
 		  }
 	  }
 	  return attackMessage;
@@ -783,6 +802,12 @@ public class GameActivity extends Activity {
 		{
 			((Button) attackButtonGrid.getChildAt(i)).setClickable(false);
 		}
+
+		RadioGroup attackGrid = (RadioGroup) findViewById(R.id.attackSelectionGrid);
+		for(int i = 0; i < attackGrid.getChildCount(); i++)
+		{
+			attackGrid.getChildAt(i).setClickable(false);
+		}
 	}
 	
 	void enableBoard()
@@ -799,6 +824,11 @@ public class GameActivity extends Activity {
 		for(int i = 0; i < attackButtonGrid.getChildCount(); i++)
 		{
 			((Button) attackButtonGrid.getChildAt(i)).setClickable(true);
+		}
+		RadioGroup attackGrid = (RadioGroup) findViewById(R.id.attackSelectionGrid);
+		for(int i = 0; i < attackGrid.getChildCount(); i++)
+		{
+			attackGrid.getChildAt(i).setClickable(true);
 		}
 	}
 	
