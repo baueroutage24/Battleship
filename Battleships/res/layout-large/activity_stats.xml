@@ -62,7 +62,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="20dp"
         android:background="#FFFFFF"
-        android:onClick=""
+        android:onClick="onMainButtonClick"
         android:text="@string/button_main"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -86,7 +86,7 @@
         android:layout_marginLeft="6dp"
         android:layout_toRightOf="@+id/icon_newgame"
         android:background="#FFFFFF"
-        android:onClick=""
+        android:onClick="onNewGameButtonClick"
         android:text="@string/button_newgame"
         android:textSize="20sp"
         android:textStyle="bold" />

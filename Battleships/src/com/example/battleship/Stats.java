@@ -1,8 +1,9 @@
 package com.example.battleship;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 public class Stats extends Activity {
 
@@ -23,6 +24,18 @@ public class Stats extends Activity {
 		p1_accuracy = (int) (((double)p1_numdestroyed) / ((double)num_turns) *100);
 		p2_accuracy = (int) (((double)p2_numdestroyed) / ((double)num_turns) *100);
 		
+	}
+	
+	public void onNewGameButtonClick(View view)
+	{
+		Intent intent = new Intent(this, ConnectActivity.class);
+		startActivity(intent);
+	}
+	
+	public void onMainButtonClick(View view)
+	{
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
 	}
 
 }
